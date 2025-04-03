@@ -40,13 +40,13 @@ export async function main(ns: NS) {
   }
 
   const doc = eval('document');
-  const removeByClassName = (sel) => doc.querySelectorAll(sel).forEach(el => el.remove());
-  const colorByClassName = (sel, col) => doc.querySelectorAll(sel).forEach(el => el.style.color = col);
+  const removeByClassName = (sel: string) => doc.querySelectorAll(sel).forEach((el: { remove: () => void; }) => el.remove());
+  const colorByClassName = (sel: string, col: string) => doc.querySelectorAll(sel).forEach((el: { style: { color: string; }; }) => el.style.color = col);
   const hook0 = doc.getElementById('overview-extra-hook-0');
   const hook1 = doc.getElementById('overview-extra-hook-1');
 
+  // eslint-disable-next-line no-constant-condition
   while (true) {
-
     try {
       const player = ns.getPlayer();
 
@@ -83,7 +83,7 @@ export async function main(ns: NS) {
         let gains = 0;
         for (const script of ns.ps(pserv)) {
           const s = ns.getRunningScript(script.pid)
-          if (s.onlineRunningTime > 0) gains += s.onlineMoneyMade / s.onlineRunningTime
+          if (s && s.onlineRunningTime > 0) gains += s.onlineMoneyMade / s.onlineRunningTime
         }
         cumulative += gains;
       }

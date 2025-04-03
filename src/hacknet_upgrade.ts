@@ -10,6 +10,7 @@ export async function main(ns: NS) {
   const delayTime = Number.parseInt(`${ns.args[0] || 5000}`);
   const thresholdMultiplier = Number.parseInt(`${ns.args[1] || 1.5}`); //Bigger threshold, the less it spends
 
+  // eslint-disable-next-line no-constant-condition
   while (true) {
     const ownedNodes = ns.hacknet.numNodes();
     let minValue = ns.hacknet.getPurchaseNodeCost();

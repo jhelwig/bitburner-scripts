@@ -15,6 +15,7 @@ export async function main(ns: NS) {
     ns.nuke(hostname);
   }
 
+  // eslint-disable-next-line no-constant-condition
   while (true) {
     if (ns.getServerSecurityLevel(hostname) > securityThreshold) {
       await ns.weaken(hostname);
