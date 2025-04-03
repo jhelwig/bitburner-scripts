@@ -1,4 +1,6 @@
-# Typescript template for Bitburner's Remote File API
+# Scripts for Bitburner's Remote File API
+
+Forked from [bitburner-official/typescript-template](https://github.com/bitburner-official/typescript-template)
 
 The official template for synchronizing Typescript/Javascript from your computer to the game.
 
